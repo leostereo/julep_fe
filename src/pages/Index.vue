@@ -1,9 +1,7 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
+  <q-page class="flex flex-center bg-brand">
+    <div class="text-brand">JULEP SOON</div>
+  
   </q-page>
 </template>
 

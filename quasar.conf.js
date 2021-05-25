@@ -114,8 +114,8 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
+        name: `Julep App`,
+        short_name: `Julep App`,
         description: `julep front end`,
         display: 'standalone',
         orientation: 'portrait',

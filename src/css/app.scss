@@ -1,1 +1,53 @@
 // app global css in SCSS form
+// Blue color used in menu , login ...
+
+
+// **************************************general
+$julep_text1 : #375F7D;
+
+.text-brand {
+  color : $julep_text1
+}
+.bg-brand {
+  background: #F1F9FF;
+}
+// **************************************login - register
+
+.q-field--outlined .q-field__control:before {
+  border: 1px solid #375f7d;
+  transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.q-field--outlined .q-field__control:hover:before {
+  border-color: #375f7d;
+  border-width: 3px;
+}
+
+.q-field--outlined .q-field__control {
+  padding: 0 12px;
+  border-radius: 15px;
+  border-width: 3px;
+}
+
+.j-login-reg {
+	background:linear-gradient(to bottom, #8397a8 5%, #354c5e 100%);
+	background-color:#8397a8;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+
+}
+.j-button:hover {
+	background:linear-gradient(to bottom, #354c5e 5%, #8397a8 100%);
+	background-color:#354c5e;
+}
+.j-button:active {
+	position:relative;
+	top:1px;
+}
+.bg-input {
+  background: #DEEFFF;
+}
+

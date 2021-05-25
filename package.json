@@ -2,7 +2,7 @@
   "name": "julep_fe",
   "version": "0.0.1",
   "description": "julep front end",
-  "productName": "Quasar App",
+  "productName": "Julep App",
   "author": "leo <ingrogger@gmail.com>",
   "private": true,
   "scripts": {
