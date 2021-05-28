@@ -1,24 +1,23 @@
 <template>
-  <q-page class="flex flex-center bg-brand">
+  <q-page class="flex flex-center bg-julep1">
     <div class="q-pa-md">
       <div class="q-gutter-md" style="margin:auto;width: 90%">
         <div class="fixed-top q-mt-lg">
           <div class="text-center">
             <q-img
               src="../assets/images/logo design_color_bluetext_nobackground.png"
-              style="height: 80px; max-width: 160px"
+              style="height: 80px; max-width: 200px"
             />
           </div>
-          <div class="text-h4 text-brand text-center ">
+          <div class="text-h5 text-julep1 text-center ">
             Create Account
           </div>
         </div>
         <div class="row q-mt-lg">
   <div class="col">        <q-input
-          class=""
           outlined
           label-color="gray"
-          color="brand"
+          color="julep1"
           bg-color="input"
           v-model="firstname"
           label="First Name"
@@ -28,7 +27,7 @@
           class=""
           outlined
           label-color="gray"
-          color="brand"
+          color="julep1"
           bg-color="input"
           v-model="lastname"
           label="Last Name"
@@ -37,20 +36,21 @@
 </div>
 
         <q-input
-          class=""
+          class="q-my-xs"
           outlined
           label-color="gray"
-          color="brand"
+          color="julep1"
           bg-color="input"
           v-model="email"
           label="Email"
         />
         <q-input
           type="password"
-          class=""
+          class="q-my-xs"
+
           outlined
           label-color="gray"
-          color="brand"
+          color="julep1"
           bg-color="input"
           v-model="pass1"
           label="password"
@@ -58,10 +58,10 @@
         />
         <q-input
           type="password"
-          class=""
+          class="q-my-xs"
           outlined
           label-color="gray"
-          color="brand"
+          color="julep1"
           bg-color="input"
           v-model="pass2"
           label="confirm password"
@@ -83,6 +83,7 @@
 
 <script>
 export default {
+  name: 'Register',
   data() {
     return {
       firstname: "",
@@ -91,8 +92,7 @@ export default {
       pass1: "",
       pass2: "",
     };
-  }
-  // name: 'PageName',
+  },
 };
 </script>
 <style lang="scss">

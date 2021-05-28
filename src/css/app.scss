@@ -4,22 +4,27 @@
 
 // **************************************general
 $julep_text1 : #375F7D;
+$green_julep1: #4EC56A;
 
-.text-brand {
+.text-julep1 {
   color : $julep_text1
 }
-.bg-brand {
+.text-julep2 {
+  color : #4EC56A
+}
+
+.bg-julep1 {
   background: #F1F9FF;
 }
 // **************************************login - register
 
 .q-field--outlined .q-field__control:before {
-  border: 1px solid #375f7d;
+  border: 1px solid $julep_text1 ;
   transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .q-field--outlined .q-field__control:hover:before {
-  border-color: #375f7d;
+  border-color: $julep_text1;
   border-width: 3px;
 }
 

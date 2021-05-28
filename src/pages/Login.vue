@@ -4,44 +4,43 @@
       <div class="q-gutter-md" style="max-width: 300px">
         <div class="fixed-top q-mt-lg">
           <div class="text-center">
-    <q-img
-      src="../assets/images/logo design_color_bluetext_nobackground.png"
-      style="height: 80px; max-width: 260px"
-      />
+            <q-img
+              src="../assets/images/logo design_color_bluetext_nobackground.png"
+              style="height: 80px; max-width: 260px"
+              />
           </div>
-          <div class="text-h4 text-brand text-center q-my-lg">
+          <div class="text-h5 text-julep1 text-center q-my-md">
             Create Account
           </div>
         </div>
         <q-input
-          class=""
+                  class="q-mb-xs"
           outlined
-          label-color="gray"
-          color="brand"
+          label-color="julep1"
+          color="julep1"
           bg-color="input"
           v-model="user"
           label="user"
-          :dense="dense"
         />
         <q-input
+                          class="q-my-xs"
+
           type="password"
-          class=""
           outlined
-          label-color="gray"
-          color="brand"
+          label-color="julep1"
+          color="julep"
           bg-color="input"
           v-model="pass"
           label="password"
-          :dense="dense"
         />
-        <div class="text-brand"> 
-          <q-checkbox size="xs" keep-color v-model="remember" label="Remember this email?" color="primary"/>
+        <div class="text-julep1 q-my-xs"> 
+          <q-checkbox size="xs" keep-color v-model="remember" label="Remember this email?" color="julep1"/>
         </div>
-        <div class="text-h10 text-brand text-center">
+        <div class="text-h10 text-julep1 text-center q-my-xs">
           Forgot you password ?
         </div>
         <div class="fixed-bottom q-mb-md">
-          <div class="text-h11 text-brand text-center q-pa-md">
+          <div class="text-h11 text-julep1 text-center q-pa-md">
             Don´t you have an account ? <a href="#/register">Sign up</a> to create an account
           </div>
           <div class="text-center">
@@ -55,6 +54,7 @@
 
 <script>
 export default {
+  name: 'Login',  
   data() {
     return {
       user: "",
@@ -62,7 +62,7 @@ export default {
       remember:false
     };
   }
-  // name: 'PageName',
+
 };
 </script>
 <style lang="scss">

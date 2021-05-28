@@ -1,8 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-white text-brand">
+    <q-header elevated class="bg-white text-julep1">
       <q-toolbar class="">
-        <q-icon name="star" style="font-size: 2rem" />
+    <q-btn class="q-mt-xs" dense round flat icon="star" style="font-size: 1.2em;">
+      <q-badge color="green" floating transparent >
+        4
+      </q-badge>
+    </q-btn>
         <q-toolbar-title class="text-weight-bold text-center">
           Dashboard
         </q-toolbar-title>
@@ -28,13 +32,13 @@
         <q-item
           clickable
           v-ripple
-          v-for="link in essentialLinks"
+          v-for="link in topItems"
           :key="link.name"
           :to="link.path"
-          class="text-brand"
+          class="text-julep1"
         >
           <q-item-section avatar>
-            <q-icon color="text-brand" :name="link.icon" />
+            <q-icon color="julep1" :name="link.icon" />
           </q-item-section>
 
           <q-item-section avatar>
@@ -43,7 +47,14 @@
         </q-item>
       </q-list>
     </q-drawer>
-
+      <q-footer class="bg-white text-julep1">
+    <q-btn-group  >
+      <q-btn  v-for="link in bottomItems"
+      :key="link.label"
+      no-caps stack :label="link.label" :icon="link.icon" />
+     
+    </q-btn-group>
+      </q-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -51,32 +62,9 @@
 </template>
 
 <script>
-const linksData = [
-  {
-    title: "Login",
-    caption: "pagina de login",
-    icon: "login",
-    path: "/login"
-  },
-  {
-    title: "Register",
-    caption: "nuevo usuario",
-    icon: "how_to_reg",
-    path: "/Register"
-  },
-  {
-    title: "Dashboard",
-    caption: "Panel de usuarios",
-    icon: "dashboard",
-    path: "/Dashboard"
-  },
-  {
-    title: "Logout",
-    caption: "adiosss",
-    icon: "logout",
-    path: "/Logout"
-  }
-];
+import TOP_MENU_ITEMS from "../constants/home/top_menu_items";
+import BOTTOM_MENU_ITEMS from "../constants/home/bottom_menu_items";
+
 
 export default {
   name: "MainLayout",
@@ -84,7 +72,8 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
-      essentialLinks: linksData
+      topItems: TOP_MENU_ITEMS,
+      bottomItems: BOTTOM_MENU_ITEMS,
     };
   }
 };
