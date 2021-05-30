@@ -29,7 +29,7 @@ export default {
   }),
   computed: {
     progressVal() {
-      return (this.progress / 1).toFixed(2) + "%";
+      return parseInt((this.progress / 1).toFixed(2));
     },
     progressLabel() {
       return (this.progress * 1).toFixed(2) + "%";

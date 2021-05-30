@@ -25,7 +25,7 @@
     <div class="main_text text-julep1 q-mb-xs">
       Todays activities      
     </div>
-    <div class="activity_frame">
+    <div class="activity_frame" v-if="render">
       <div v-for="activity in userState.todayActivities" :key="activity.id">
         <activity
           :title="activity.title"
@@ -38,7 +38,7 @@
         <div class="main_text text-julep1 q-mt-md">
         My progress      
     </div>
-    <div class="goal_frame">
+    <div class="goal_frame"  v-if="render">
       <p class="secondary_text text-julep1">Goals</p>
           <q-carousel
       v-model="slide"
@@ -58,7 +58,7 @@
       <q-carousel-slide
         v-for="goal in userState.goals"
         :key="goal.id"
-        :name="goal.title"
+        :name="goal.id"
         class=""
       >
         <goal :title="goal.title" :progress="goal.progress" />
@@ -88,16 +88,20 @@ export default {
     Activity,
     Goal
   },
-  data() {
-    return {
+  data: () => ({
       dateStr: "",
       data: {},
       alert: false,
-      slide: ""
-    };
-  },
+      slide: '',
+      render: false,
+  }),  
+
   created: function() {
     this.displayDate();
+   getUserStatus();
+
+
+    /*
     api
       .get("/dashboard/user/100")
       .then(response => {
@@ -108,6 +112,7 @@ export default {
       .catch(() => {
         console.log("something is wrong");
       });
+      */
   },
   methods: {
     displayDate: function() {
@@ -120,8 +125,17 @@ export default {
   computed: {
     userState: {
       get() {
-        return this.$store.getters["julepx/userInfo"];
+                return this.$store.getters["userInfo"];
+
+        //return this.$store.getters["julepx/userInfo"];
       }
+    }
+  },
+  watch: {
+    userState(value) {
+      this.color = "#" + value.stripColor;
+      this.slide = value.goals[0].id
+      this.render= true;
     }
   }
 };
