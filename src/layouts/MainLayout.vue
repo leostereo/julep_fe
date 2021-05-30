@@ -2,11 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-white text-julep1">
       <q-toolbar class="">
-    <q-btn class="q-mt-xs" dense round flat icon="star" style="font-size: 1.2em;">
-      <q-badge color="green" floating transparent >
-        4
-      </q-badge>
-    </q-btn>
+
         <q-toolbar-title class="text-weight-bold text-center">
           Dashboard
         </q-toolbar-title>
@@ -47,8 +43,8 @@
         </q-item>
       </q-list>
     </q-drawer>
-      <q-footer class="bg-white text-julep1">
-    <q-btn-group  >
+      <q-footer class="bg-white text-julep1 text-center">
+    <q-btn-group  unelevated>
       <q-btn  v-for="link in bottomItems"
       :key="link.label"
       no-caps stack :label="link.label" :icon="link.icon" />

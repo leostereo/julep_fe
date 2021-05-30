@@ -1,13 +1,13 @@
 <template>
-<div  class="frame row" v-bind:class="[status === 'doing' ? 'enabled' : 'disabled']">
+<div  class="frame row" v-bind:class="[enabled ? 'enabled' : 'disabled']">
   <div class="col-9">
-    <p v-bind:class="[status === 'doing' ? 'title' : 'title_dis']">{{ title }}</p>
+    <p v-bind:class="[enabled ? 'title' : 'title_dis']">{{ title }}</p>
     <p class="text-julep1 description">{{ description }}</p>
   </div>
 
   <div class="col text-julep1">
 
-    <p v-if="status === 'doing'" class="">{{ time }}mins</p>
+    <p v-if="enabled" class="">{{ time }}mins</p>
     <q-icon v-else name="lock" class="text-primary" style="font-size: 32px;" />
 
   </div>
@@ -29,7 +29,7 @@ export default {
       required: true,
       default: ""
     },
-      status: {
+      enabled: {
       type: Boolean,
       required: true,
       default: false

@@ -18,11 +18,6 @@ const BOTTOM_MENU_ITEMS = [
     label: "Library",
     icon: "menu_book",
     path: "/login"
-  },
-  {
-    label: "Community",
-    icon: "groups",
-    path: "/login"
   }
 ];
 

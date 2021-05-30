@@ -1,2 +1,4 @@
-export function someMutation (/* state */) {
-}
+
+export const updateUser = (state, userStatus) => {
+  state.user = userStatus;
+};
