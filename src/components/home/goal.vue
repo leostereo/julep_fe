@@ -29,7 +29,8 @@ export default {
   }),
   computed: {
     progressVal() {
-      return parseInt((this.progress / 1).toFixed(2));
+      return parseFloat((this.progress / 100).toFixed(2));
+
     },
     progressLabel() {
       return (this.progress * 1).toFixed(2) + "%";
@@ -57,7 +58,7 @@ export default {
   margin: 0%;
 }
 .title_dis {
-  font-size: 1em;
+  font-size: em;
   color: #375f7d;
   margin: 0%;
 }

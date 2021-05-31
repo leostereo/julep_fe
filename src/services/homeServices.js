@@ -1,6 +1,6 @@
 import { api } from "boot/axios";
-//import { Store } from "../store";
-import store from "../store";
+import { Store } from "../store";
+//import store from "../store";
 
 
 function getUserStatus() {
@@ -8,9 +8,8 @@ function getUserStatus() {
     .get("/dashboard/user/100")
     .then(response => {
       console.log(JSON.stringify(response.data));
-      //store.commit("julepx/UPDATE_USER", response.data);
-      store.commit("UPDATE_USER", response.data);
-      //this.showAlert();
+      Store.commit("julepx/UPDATE_USER", response.data);
+      //store.commit("UPDATE_USER", response.data);
       return true;
     })
     .catch((err) => {

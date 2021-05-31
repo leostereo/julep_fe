@@ -1,34 +1,32 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+// import example from './module-example'
+import julepx from "./julepx";
 
-export default new Vuex.Store({
-  state: {
-    user: {
-      initialTip: "",
-      score: 0,
-      initialGreeting: "",
-      todayActivities: [],
-      goals: [],
-      activeChallenges: []
-    }
-  },
-  mutations: {
 
-  UPDATE_USER(state, userStatus){
-  state.user = userStatus;
-  },
+Vue.use(Vuex)
 
-  },
-  getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
+/*
+ * If not building with SSR mode, you can
+ * directly export the Store instantiation;
+ *
+ * The function below can be async too; either use
+ * async/await or return a Promise which resolves
+ * with the Store instance.
+ */
+let Store = null;
+export default function (/* { ssrContext } */) {
+  Store = new Vuex.Store({
+    modules: {
+       julepx
     },
-    userInfo: state => {
-      return state.user;
-    }
-  },  
-  actions: {},
-  modules: {}
-});
+
+    // enable strict mode (adds overhead!)
+    // for dev mode only
+    strict: process.env.DEBUGGING
+  })
+
+  return Store
+}
+export { Store };
