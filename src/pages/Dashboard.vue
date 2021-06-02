@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="bg-julep1">
+  <q-page padding v-if="render">
     <q-dialog v-model="alert">
       <q-card class="bg-julep1 text-julep1">
         <q-card-section align="center" class="q-mt-sx">
@@ -50,8 +50,8 @@
         color="white"
         text-color="julep1"
         :options="[
-          {label: 'Goals', value: true},
-          {label: 'Challenges', value: false}
+          { label: 'Goals', value: true },
+          { label: 'Challenges', value: false }
         ]"
       />
       <q-carousel
@@ -101,9 +101,50 @@
         >
           <goal :title="challenge.title" :progress="challenge.progress" />
         </q-carousel-slide>
-      </q-carousel>      
+      </q-carousel>
+      <q-dialog v-model="addDialog">
+        <q-card class="bg-julep1 text-julep1 q-px-md">
+          <q-card-section align="center" class="q-pt-none">
+            <p class="secondary_text q-mt-md">
+              Lets add a new {{ showGoals ? "Goal" : "challenge" }}
+            </p>
+          </q-card-section>
+          <q-input
+            class="q-mb-xs"
+            outlined
+            label-color="julep1"
+            color="julep1"
+            bg-color="input"
+            v-model="newGoalChall.title"
+            label="Title"
+          />
+          <q-card-section align="center" class="q-pt-none">
+            <p class="third_text q-my-lg">
+              What is current progress?
+            </p>
+            <q-slider
+              label
+              :label-value="newGoalChall.progress + '%'"
+              v-model="newGoalChall.progress"
+              :min="0"
+              :max="100"
+              :step="5"
+            />
+          </q-card-section>
+
+          <q-card-actions align="center" class="q-mb-md">
+            <q-btn flat label="go for it!!" class="j-login-reg" @click="submitNew" v-close-popup />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
       <div class="text-right q-pr-md">
-        <q-btn class="" round color="primary" icon="add" />
+        <q-btn
+          class=""
+          round
+          color="primary"
+          icon="add"
+          @click="addDialog = true"
+        />
       </div>
     </div>
   </q-page>
@@ -118,7 +159,7 @@ import Goal from "../components/home/goal";
 import { mapState } from "vuex";
 
 export default {
-  name: "Home",
+  name: "Dashboard",
   components: {
     Activity,
     Goal
@@ -130,7 +171,13 @@ export default {
     goalSlide: "",
     challengeSlide: "",
     render: false,
-    showGoals: false
+    showGoals: false,
+    addDialog: false,
+    newGoalChall: {
+      type: "",
+      title: "",
+      progress: 0
+    }
   }),
 
   created: function() {
@@ -143,6 +190,9 @@ export default {
     },
     showAlert: function() {
       this.alert = true;
+    },
+    submitNew(){
+      console.log(JSON.stringify(this.newGoalChall));
     }
   },
   computed: {
@@ -169,8 +219,15 @@ export default {
 .main_text {
   font-weight: bold;
   font-size: 1.6em;
-    margin-left: 3%
-
+  margin-left: 3%;
+}
+.secondary_text {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.third_text{
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .q-dialog__inner > div {

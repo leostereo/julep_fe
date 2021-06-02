@@ -44,7 +44,7 @@
             Don´t you have an account ? <a href="#/register">Sign up</a> to create an account
           </div>
           <div class="text-center">
-            <q-btn to="/home" no-caps label="Login" class="j-login-reg log"/>
+            <q-btn to="/dashboard" no-caps label="Login" class="j-login-reg log"/>
           </div>
         </div>
       </div>

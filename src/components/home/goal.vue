@@ -1,6 +1,33 @@
 <template>
   <div class="bg-julep1 text-julep1">
-    <p>{{ title }}</p>
+    <q-dialog v-model="delDialog">
+      <q-card class="bg-julep1 text-julep1 q-px-md">
+        <q-card-section align="center" class="q-pt-none">
+          <p class="secondary_text q-mt-md">Give up with "{{ title }}"" ?</p>
+        </q-card-section>
+        <q-card-actions align="center" class="q-mb-md">
+          <q-btn
+            flat
+            label="confirm"
+            class="j-login-reg"
+            @click="deleteGoal"
+            v-close-popup
+          />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+    <div class="row q-mb-xs">
+      <div class="col-10">{{ title }}</div>
+      <div class="col-auto"></div>
+      <div class="col-1"><q-icon name="edit" style="font-size: 1.5em" /></div>
+      <div class="col-1">
+        <q-icon
+          name="delete"
+          @click="delDialog = true"
+          style="font-size: 1.5em;"
+        />
+      </div>
+    </div>
     <q-linear-progress rounded size="25px" :value="progressVal" color="julep1">
       <div class="absolute-full flex flex-center">
         <q-badge color="julep1" text-color="julep1" :label="progressLabel" />
@@ -22,15 +49,23 @@ export default {
       type: Number,
       required: true,
       default: 0
+    },
+    type: {
+      type: String,
+      required: false
     }
   },
   data: () => ({
-    //mytitle: "test"
+    delDialog: false
   }),
+  methods: {
+    deleteGoal: function() {
+      console.log("deleting");
+    }
+  },
   computed: {
     progressVal() {
       return parseFloat((this.progress / 100).toFixed(2));
-
     },
     progressLabel() {
       return (this.progress * 1).toFixed(2) + "%";
@@ -66,5 +101,4 @@ export default {
   font-size: 0.8em;
   margin: 0%;
 }
-
 </style>

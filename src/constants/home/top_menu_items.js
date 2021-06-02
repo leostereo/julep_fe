@@ -9,13 +9,13 @@ const TOP_MENU_ITEMS = [
     title: "Register",
     caption: "nuevo usuario",
     icon: "how_to_reg",
-    path: "/Register"
+    path: "/register"
   },
   {
     title: "Dashboard",
     caption: "Panel de usuarios",
     icon: "dashboard",
-    path: "/Dashboard"
+    path: "/dashboard"
   },
   {
     title: "Logout",

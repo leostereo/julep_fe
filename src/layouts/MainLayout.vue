@@ -51,7 +51,7 @@
      
     </q-btn-group>
       </q-footer>
-    <q-page-container>
+    <q-page-container class="bg-julep1">
       <router-view />
     </q-page-container>
   </q-layout>

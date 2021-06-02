@@ -6,9 +6,9 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Login.vue") }]
   },
   {
-    path: "/home",
+    path: "/dashboard",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/Home.vue") }]
+    children: [{ path: "", component: () => import("src/pages/Dashboard.vue") }]
   },
   {
     path: "/login",
@@ -19,6 +19,11 @@ const routes = [
     path: "/register",
     component: () => import("layouts/login-register.vue"),
     children: [{ path: "", component: () => import("pages/Register.vue") }]
+  },
+  {
+    path: "/activity/1",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/activity/1.vue") }]
   },
   // Always leave this as last one,
   // but you can also remove it
