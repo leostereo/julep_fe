@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: "/activity/1",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("layouts/BasicLayout.vue"),
     children: [{ path: "", component: () => import("pages/activity/1.vue") }]
   },
   // Always leave this as last one,

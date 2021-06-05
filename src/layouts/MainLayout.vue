@@ -2,7 +2,6 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-white text-julep1">
       <q-toolbar class="">
-
         <q-toolbar-title class="text-weight-bold text-center">
           Dashboard
         </q-toolbar-title>
@@ -43,14 +42,18 @@
         </q-item>
       </q-list>
     </q-drawer>
-      <q-footer class="bg-white text-julep1 text-center">
-    <q-btn-group  unelevated>
-      <q-btn  v-for="link in bottomItems"
-      :key="link.label"
-      no-caps stack :label="link.label" :icon="link.icon" />
-     
-    </q-btn-group>
-      </q-footer>
+    <q-footer class="bg-white text-julep1 text-center">
+      <q-btn-group unelevated>
+        <q-btn
+          v-for="link in bottomItems"
+          :key="link.label"
+          no-caps
+          stack
+          :label="link.label"
+          :icon="link.icon"
+        />
+      </q-btn-group>
+    </q-footer>
     <q-page-container class="bg-julep1">
       <router-view />
     </q-page-container>
@@ -61,7 +64,6 @@
 import TOP_MENU_ITEMS from "../constants/home/top_menu_items";
 import BOTTOM_MENU_ITEMS from "../constants/home/bottom_menu_items";
 
-
 export default {
   name: "MainLayout",
   components: {},
@@ -69,7 +71,7 @@ export default {
     return {
       leftDrawerOpen: false,
       topItems: TOP_MENU_ITEMS,
-      bottomItems: BOTTOM_MENU_ITEMS,
+      bottomItems: BOTTOM_MENU_ITEMS
     };
   }
 };

@@ -56,3 +56,24 @@ $green_julep1: #4EC56A;
   background: #DEEFFF;
 }
 
+//basicLogout //activity
+
+.j-text1{
+  color : $julep_text1;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+.j-text2{
+  font-size: 1.3em;
+}
+
+.j-activity_button1 {
+	background:linear-gradient(to bottom, #8397a8 5%, #354c5e 100%);
+	background-color:#8397a8;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+  padding:5%;
+}

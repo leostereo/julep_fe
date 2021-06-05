@@ -6,7 +6,7 @@
   </div>
 
   <div class="col text-julep1">
-    <p v-if="false" class="">{{ time }}mins</p>
+    <p v-if="enabled" class="">{{ time }}mins</p>
     <q-icon v-else name="lock" class="text-primary" style="font-size: 32px;" />
 
   </div>
