@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "MainLayout",
+  name: "BasicLayout",
   components: {},
   data() {
     return {};

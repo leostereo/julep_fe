@@ -17,12 +17,6 @@ const TOP_MENU_ITEMS = [
     icon: "dashboard",
     path: "/dashboard"
   },
-  {
-    title: "Logout",
-    caption: "adiosss",
-    icon: "logout",
-    path: "/Logout"
-  }
 ];
 
 export default TOP_MENU_ITEMS;

@@ -24,14 +24,14 @@
       content-class="bg-grey-1"
     >
       <q-list bordered separator>
-        <q-item
+       <q-item
           clickable
           v-ripple
           v-for="link in topItems"
           :key="link.name"
           :to="link.path"
           class="text-julep1"
-        >
+        > 
           <q-item-section avatar>
             <q-icon color="julep1" :name="link.icon" />
           </q-item-section>
@@ -40,6 +40,20 @@
             {{ link.title }}
           </q-item-section>
         </q-item>
+       <q-item
+          clickable
+          v-ripple
+          @click="logout()"
+          class="text-julep1"
+        > 
+          <q-item-section avatar>
+            <q-icon color="julep1" name="logout"/>
+          </q-item-section>
+
+          <q-item-section avatar>
+            Logout
+          </q-item-section>
+        </q-item>        
       </q-list>
     </q-drawer>
     <q-footer class="bg-white text-julep1 text-center">
@@ -63,6 +77,7 @@
 <script>
 import TOP_MENU_ITEMS from "../constants/home/top_menu_items";
 import BOTTOM_MENU_ITEMS from "../constants/home/bottom_menu_items";
+import { auth_logout } from "src/services/cloud";
 
 export default {
   name: "MainLayout",
@@ -73,6 +88,16 @@ export default {
       topItems: TOP_MENU_ITEMS,
       bottomItems: BOTTOM_MENU_ITEMS
     };
-  }
+  },
+  methods: {
+    async logout() {
+      console.log("logout");
+      const stat = await auth_logout();
+      if (stat.status == "ok") {
+        this.loggedIn = false;
+        this.$router.push('/login');
+      }
+    }
+  },  
 };
 </script>

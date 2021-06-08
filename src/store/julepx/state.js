@@ -7,6 +7,9 @@ export default function () {
       todayActivities: [],
       goals: [],
       activeChallenges: []
+    },
+    auth:{
+      
     }
   };
 }

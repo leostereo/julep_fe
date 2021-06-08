@@ -1,75 +1,87 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center bg-julep1">
     <div class="q-pa-md">
-      <div class="q-gutter-md" style="max-width: 300px">
+      <div class="q-gutter-md" style="margin:auto;width: 90%">
         <div class="fixed-top q-mt-lg">
           <div class="text-center">
             <q-img
               src="../assets/images/logo design_color_bluetext_nobackground.png"
-              style="height: 80px; max-width: 260px"
-              />
+              style="height: 80px; max-width: 200px"
+            />
           </div>
-          <div class="text-h5 text-julep1 text-center q-my-md">
+          <div class="text-h5 text-julep1 text-center ">
             Create Account
           </div>
         </div>
-        <q-input
-                  class="q-mb-xs"
-          outlined
-          label-color="julep1"
-          color="julep1"
-          bg-color="input"
-          v-model="user"
-          label="user"
-        />
-        <q-input
-                          class="q-my-xs"
-
-          type="password"
-          outlined
-          label-color="julep1"
-          color="julep"
-          bg-color="input"
-          v-model="pass"
-          label="password"
-        />
-        <div class="text-julep1 q-my-xs"> 
-          <q-checkbox size="xs" keep-color v-model="remember" label="Remember this email?" color="julep1"/>
-        </div>
-        <div class="text-h10 text-julep1 text-center q-my-xs">
-          Forgot you password ?
-        </div>
-        <div class="fixed-bottom q-mb-md">
-          <div class="text-h11 text-julep1 text-center q-pa-md">
-            Don´t you have an account ? <a href="#/register">Sign up</a> to create an account
-          </div>
-          <div class="text-center">
-            <q-btn to="/dashboard" no-caps label="Login" class="j-login-reg log"/>
-          </div>
-        </div>
+    <amplify-authenticator class="" v-if="!loggedIn" >
+      <amplify-sign-in
+      username-alias="email"
+        header-text=""
+        submit-button-text="Login!"
+        slot="sign-in"
+      ></amplify-sign-in>
+      <amplify-sign-up
+        header-text="Create Account"
+        slot="sign-up"
+        username-alias="email"
+        :form-fields.prop="formFields"
+      />
+    </amplify-authenticator>
       </div>
     </div>
   </q-page>
 </template>
 
 <script>
+import { onAuthUIStateChange } from "@aws-amplify/ui-components";
+import "@aws-amplify/ui-vue";
+import { auth_logout } from "src/services/cloud";
+import updateAuthStatus from "../services/loginServices";
+
 export default {
-  name: 'Login',  
+  name: 'Login',
   data() {
     return {
-      user: "",
-      pass: "",
-      remember:false
+      loggedIn: false,
+      user: undefined,
+      formFields: [{ type: "email" }, { type: "password" }]
     };
-  }
+  },
+  created() {
+    this.unsubscribeAuth = onAuthUIStateChange((authState, authData) => {
+      if (authState == "signedin") {
+        this.loggedIn = true;
+        this.user = authData;
+      } else {
+        this.loggedIn = false;
+        this.user = "";
+      }
+    });
+  },
+    watch: {
+    loggedIn(value) {
+        if(value==true){
+        console.log("before commit");
+        this.$store.commit("julepx/UPDATE_AUTH", this.user);
+        this.$router.push('/dashboard');
+        }
 
+    }
+  }
+ 
 };
 </script>
 <style lang="scss">
-
-
-.log {
-  font-size: 1em;
-	padding:2% 20%;
+:root {
+  --amplify-primary-color: #375F7D;
+  --amplify-primary-tint:#4EC56A;
+  --amplify-primary-shade:#375F7D;
+  --amplify-secondary-color: #375F7D;
+  --border-color:red;
+  --background-color: pink;
+  --amplify-background-color: #F1F9FF;
+}
+amplify-authenticator {
+  --box-shadow: 0;
 }
 </style>

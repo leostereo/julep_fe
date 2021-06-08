@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-julepauthentication-dev-195025-authRole",
+      "UnauthRoleArn": "arn:aws:iam::241757174705:role/amplify-julepauthentication-dev-195025-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::241757174705:role/amplify-julepauthentication-dev-195025-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-julepauthentication-dev-195025-deployment",
+      "UnauthRoleName": "amplify-julepauthentication-dev-195025-unauthRole",
+      "StackName": "amplify-julepauthentication-dev-195025",
+      "StackId": "arn:aws:cloudformation:us-east-1:241757174705:stack/amplify-julepauthentication-dev-195025/980de790-c719-11eb-b771-12878b97cc21",
+      "AmplifyAppId": "d2i2xk04yvemru"
+    },
+    "categories": {
+      "auth": {
+        "julepauthentication8f374656": {}
+      }
+    }
+  }
+}

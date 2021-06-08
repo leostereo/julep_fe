@@ -16,11 +16,6 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Login.vue") }]
   },
   {
-    path: "/register",
-    component: () => import("layouts/login-register.vue"),
-    children: [{ path: "", component: () => import("pages/Register.vue") }]
-  },
-  {
     path: "/activity/1",
     component: () => import("layouts/BasicLayout.vue"),
     children: [{ path: "", component: () => import("pages/activity/1.vue") }]

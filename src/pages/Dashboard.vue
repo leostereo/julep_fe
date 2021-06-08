@@ -183,6 +183,8 @@ export default {
   created: function() {
     this.displayDate();
     getUserStatus();
+    console.log(JSON.stringify(this.$store.getters["julepx/authInfo"]));
+
   },
   methods: {
     displayDate: function() {
