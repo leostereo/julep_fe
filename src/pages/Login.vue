@@ -13,20 +13,20 @@
             Create Account
           </div>
         </div>
-    <amplify-authenticator class="" v-if="!loggedIn" >
-      <amplify-sign-in
-      username-alias="email"
-        header-text=""
-        submit-button-text="Login!"
-        slot="sign-in"
-      ></amplify-sign-in>
-      <amplify-sign-up
-        header-text="Create Account"
-        slot="sign-up"
-        username-alias="email"
-        :form-fields.prop="formFields"
-      />
-    </amplify-authenticator>
+        <amplify-authenticator class="" v-if="!loggedIn">
+          <amplify-sign-in
+            username-alias="email"
+            header-text=""
+            submit-button-text="Login!"
+            slot="sign-in"
+          ></amplify-sign-in>
+          <amplify-sign-up
+            header-text="Create Account"
+            slot="sign-up"
+            username-alias="email"
+            :form-fields.prop="formFields"
+          />
+        </amplify-authenticator>
       </div>
     </div>
   </q-page>
@@ -34,20 +34,38 @@
 
 <script>
 import { onAuthUIStateChange } from "@aws-amplify/ui-components";
+import { Auth } from "aws-amplify";
 import "@aws-amplify/ui-vue";
 import { auth_logout } from "src/services/cloud";
 import updateAuthStatus from "../services/loginServices";
 
 export default {
-  name: 'Login',
+  name: "Login",
   data() {
     return {
       loggedIn: false,
       user: undefined,
-      formFields: [{ type: "email" }, { type: "password" }]
+      formFields: [
+        {   type: "name",
+            label: "First name",
+            placeholder: "Bruce",
+            required: true,
+            },
+       {   type: "family_name",
+            label: "Last name",
+            placeholder: "Waine",
+            required: true,
+            },
+{ type: "email" },
+        { type: "password" },
+
+
+      ]
     };
   },
   created() {
+    const currentConfig = Auth.configure();
+    console.log(JSON.stringify(currentConfig));
     this.unsubscribeAuth = onAuthUIStateChange((authState, authData) => {
       if (authState == "signedin") {
         this.loggedIn = true;
@@ -58,28 +76,26 @@ export default {
       }
     });
   },
-    watch: {
+  watch: {
     loggedIn(value) {
-        if(value==true){
-        console.log("before commit");
+      if (value == true) {
+        console.log(JSON.stringify(this.user));
         this.$store.commit("julepx/UPDATE_AUTH", this.user);
-        this.$router.push('/dashboard');
-        }
-
+        this.$router.push("/dashboard");
+      }
     }
   }
- 
 };
 </script>
 <style lang="scss">
 :root {
-  --amplify-primary-color: #375F7D;
-  --amplify-primary-tint:#4EC56A;
-  --amplify-primary-shade:#375F7D;
-  --amplify-secondary-color: #375F7D;
-  --border-color:red;
+  --amplify-primary-color: #375f7d;
+  --amplify-primary-tint: #4ec56a;
+  --amplify-primary-shade: #375f7d;
+  --amplify-secondary-color: #375f7d;
+  --border-color: red;
   --background-color: pink;
-  --amplify-background-color: #F1F9FF;
+  --amplify-background-color: #f1f9ff;
 }
 amplify-authenticator {
   --box-shadow: 0;

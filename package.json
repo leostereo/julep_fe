@@ -15,7 +15,7 @@
     "aws-amplify": "^4.0.3",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "quasar": "^1.0.0"
+    "quasar": "https://github.com/pdanpdan/quasar#quasar-pdan-v1.15.19-beta.1"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",

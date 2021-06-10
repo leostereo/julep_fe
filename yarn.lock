@@ -8440,10 +8440,9 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
-quasar@^1.0.0:
-  version "1.15.15"
-  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.15.15.tgz#b6969a028560b224ad50f71c7dcb014bc38726ae"
-  integrity sha512-Bfh3Won1botXoZrl+RTjNkbao7bZbNuOuRZ7EMDStcdCLo+I2vshvE+48uB8tFe5Q+VOEHyLOJpRm7kR8ekBdg==
+"quasar@https://github.com/pdanpdan/quasar#quasar-pdan-v1.15.19-beta.1":
+  version "1.15.19-beta.1"
+  resolved "https://github.com/pdanpdan/quasar#775c061b75702a42c3edbe47938bbf29f3395c85"
 
 query-string@^4.1.0:
   version "4.3.4"

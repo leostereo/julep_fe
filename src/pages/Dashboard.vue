@@ -182,8 +182,22 @@ export default {
 
   created: function() {
     this.displayDate();
-    getUserStatus();
-    console.log(JSON.stringify(this.$store.getters["julepx/authInfo"]));
+    let idToken;
+    try{
+       idToken = this.$store.state.julepx.auth.signInUserSession.idToken.jwtToken;
+    }catch(e){
+      console.log("something is wronw");
+      console.log(e.message)
+    }
+    
+    if (typeof idToken !== 'undefined'){
+      console.log(JSON.stringify(idToken));
+      getUserStatus(idToken);
+    }else{
+      console.log("no token");
+    }
+    
+    //console.log(JSON.stringify(this.$store.getters["julepx/authInfo"]));
 
   },
   methods: {
