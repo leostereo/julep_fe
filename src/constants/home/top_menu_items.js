@@ -6,10 +6,10 @@ const TOP_MENU_ITEMS = [
     path: "/login"
   },
   {
-    title: "Register",
-    caption: "nuevo usuario",
-    icon: "how_to_reg",
-    path: "/register"
+    caption: "cuenta de usuario",
+    title: "Account",
+    icon: "account_balance",
+    path: "/account"
   },
   {
     title: "Dashboard",

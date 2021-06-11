@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center bg-julep1">
+  <q-page class="flex flex-center">
     <div class="q-pa-md">
       <div class="q-gutter-md" style="margin:auto;width: 90%">
         <div class="fixed-top q-mt-lg">

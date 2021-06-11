@@ -16,6 +16,28 @@ $green_julep1: #4EC56A;
 .bg-julep1 {
   background: #F1F9FF;
 }
+.bg-jgreen {
+  background: $green_julep1;
+}
+
+// **************************************buttons
+//save
+.j-button1 {
+	background:linear-gradient(to bottom, #8397a8 5%, #354c5e 100%);
+	background-color:#8397a8;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+
+  font-size: 1em;
+	padding:2% 20%;
+
+}
+
+
+
 // **************************************login - register
 
 .q-field--outlined .q-field__control:before {
@@ -55,6 +77,7 @@ $green_julep1: #4EC56A;
 .bg-input {
   background: #DEEFFF;
 }
+
 
 //basicLogout //activity
 

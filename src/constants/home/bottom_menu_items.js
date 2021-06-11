@@ -7,7 +7,7 @@ const BOTTOM_MENU_ITEMS = [
   {
     label: "Account",
     icon: "account_balance",
-    path: "/login"
+    path: "/account"
   },
   {
     label: "Home",

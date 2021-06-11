@@ -2,7 +2,7 @@
 const routes = [
   {
     path: "/",
-    component: () => import("layouts/login-register.vue"),
+    component: () => import("src/layouts/LightBlue.vue"),
     children: [{ path: "", component: () => import("pages/Login.vue") }]
   },
   {
@@ -12,8 +12,18 @@ const routes = [
   },
   {
     path: "/login",
-    component: () => import("layouts/login-register.vue"),
+    component: () => import("src/layouts/LightBlue.vue"),
     children: [{ path: "", component: () => import("pages/Login.vue") }]
+  },
+  {
+    path: "/account",
+    component: () => import("src/layouts/LightBlue.vue"),
+    children: [{ path: "", component: () => import("pages/Account.vue") }]
+  },
+  {
+    path: "/account2",
+    component: () => import("src/layouts/LightBlue.vue"),
+    children: [{ path: "", component: () => import("pages/Account2.vue") }]
   },
   {
     path: "/activity/1",

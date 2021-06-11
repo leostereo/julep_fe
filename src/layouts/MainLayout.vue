@@ -65,6 +65,7 @@
           stack
           :label="link.label"
           :icon="link.icon"
+          :to="link.path"
         />
       </q-btn-group>
     </q-footer>

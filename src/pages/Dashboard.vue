@@ -42,11 +42,11 @@
       <!--<p class="secondary_text text-julep1">Goals</p>-->
       <q-btn-toggle
         v-model="showGoals"
-        class="my-custom-toggle"
-        no-caps
+        class="j-text1"
+        glossy
         rounded
+        toggle-color="jgreen"
         unelevated
-        toggle-color="primary"
         color="white"
         text-color="julep1"
         :options="[
@@ -133,7 +133,13 @@
           </q-card-section>
 
           <q-card-actions align="center" class="q-mb-md">
-            <q-btn flat label="go for it!!" class="j-login-reg" @click="submitNew" v-close-popup />
+            <q-btn
+              flat
+              label="go for it!!"
+              class="j-login-reg"
+              @click="submitNew"
+              v-close-popup
+            />
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -183,22 +189,22 @@ export default {
   created: function() {
     this.displayDate();
     let idToken;
-    try{
-       idToken = this.$store.state.julepx.auth.signInUserSession.idToken.jwtToken;
-    }catch(e){
+    try {
+      idToken = this.$store.state.julepx.auth.signInUserSession.idToken
+        .jwtToken;
+    } catch (e) {
       console.log("something is wronw");
-      console.log(e.message)
+      console.log(e.message);
     }
-    
-    if (typeof idToken !== 'undefined'){
+
+    if (typeof idToken !== "undefined") {
       console.log(JSON.stringify(idToken));
       getUserStatus(idToken);
-    }else{
+    } else {
       console.log("no token");
     }
-    
-    //console.log(JSON.stringify(this.$store.getters["julepx/authInfo"]));
 
+    //console.log(JSON.stringify(this.$store.getters["julepx/authInfo"]));
   },
   methods: {
     displayDate: function() {
@@ -207,7 +213,7 @@ export default {
     showAlert: function() {
       this.alert = true;
     },
-    submitNew(){
+    submitNew() {
       console.log(JSON.stringify(this.newGoalChall));
     }
   },
@@ -241,7 +247,7 @@ export default {
   font-weight: bold;
   font-size: 1.2em;
 }
-.third_text{
+.third_text {
   font-weight: bold;
   font-size: 1em;
 }
