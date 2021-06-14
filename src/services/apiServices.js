@@ -3,9 +3,18 @@ import { Store } from "../store";
 //import store from "../store";
 
 
-function getUserStatus(idToken) {
+
+function getApidata(apiEnd,mutation) {
+    let idToken;
+    try {
+      idToken = Store.state.julepx.auth.signInUserSession.idToken.jwtToken;
+      console.log(idToken);
+    } catch (e) {
+      console.log("something is wronw");
+      console.log(e.message);
+    }
   api
-    .get("/dashboard/user/9", {
+    .get(apiEnd, {
       headers: {
         Authorization: `Bearer ${idToken}`,
         Accept: "application/json"
@@ -13,7 +22,7 @@ function getUserStatus(idToken) {
     })
     .then(response => {
       console.log(JSON.stringify(response.data));
-      Store.commit("julepx/UPDATE_USER", response.data);
+      Store.commit(mutation, response.data);
       //store.commit("UPDATE_USER", response.data);
       return true;
     })
@@ -23,4 +32,4 @@ function getUserStatus(idToken) {
     });
 }
 
-export default getUserStatus;
+export  {  getApidata };

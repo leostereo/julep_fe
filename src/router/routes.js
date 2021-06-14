@@ -13,7 +13,7 @@ const routes = [
   {
     path: "/login",
     component: () => import("src/layouts/LightBlue.vue"),
-    children: [{ path: "", component: () => import("pages/Login.vue") }]
+    children: [{ path: "", component: () => import("pages/Login3.vue") }]
   },
   {
     path: "/account",

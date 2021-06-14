@@ -33,6 +33,7 @@
           v-model="pass"
           label="password"
         />
+        
         <div class="text-julep1 q-my-xs"> 
           <q-checkbox size="xs" keep-color v-model="remember" label="Remember this email?" color="julep1"/>
         </div>

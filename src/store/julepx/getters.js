@@ -9,3 +9,6 @@ export function userInfo(state) {
 export function authInfo(state) {
   return state.auth;
 }
+export function accountInfo(state) {
+  return state.account;
+}

@@ -159,7 +159,7 @@
 <script>
 import { api } from "boot/axios";
 import getDate from "../services/services";
-import getUserStatus from "../services/homeServices";
+import { getApidata } from "../services/apiServices";
 import Activity from "../components/home/activity.vue";
 import Goal from "../components/home/goal";
 import { mapState } from "vuex";
@@ -188,23 +188,8 @@ export default {
 
   created: function() {
     this.displayDate();
-    let idToken;
-    try {
-      idToken = this.$store.state.julepx.auth.signInUserSession.idToken
-        .jwtToken;
-    } catch (e) {
-      console.log("something is wronw");
-      console.log(e.message);
-    }
+        getApidata('/dashboard/user/9','julepx/UPDATE_USER')
 
-    if (typeof idToken !== "undefined") {
-      console.log(JSON.stringify(idToken));
-      getUserStatus(idToken);
-    } else {
-      console.log("no token");
-    }
-
-    //console.log(JSON.stringify(this.$store.getters["julepx/authInfo"]));
   },
   methods: {
     displayDate: function() {
@@ -227,7 +212,7 @@ export default {
   },
   watch: {
     userState(value) {
-      this.color = "#" + value.stripColor;
+      //this.color = "#" + value.stripColor;
       this.goalSlide = value.goals[0].id;
       this.challengeSlide = value.activeChallenges[0].id;
 
@@ -270,7 +255,5 @@ export default {
 div.q-carousel__slide {
   background: transparent;
 }
-.q-carousel__slide,
-.q-carousel .q-carousel--padding {
-}
+
 </style>

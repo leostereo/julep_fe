@@ -14,26 +14,29 @@
           </div>
         </div>
         <div class="row q-mt-lg">
-  <div class="col">        <q-input
-          outlined
-          label-color="gray"
-          color="julep1"
-          bg-color="input"
-          v-model="firstname"
-          label="First Name"
-        /></div>
-        
-  <div class="col q-ml-sm">       <q-input
-          class=""
-          outlined
-          label-color="gray"
-          color="julep1"
-          bg-color="input"
-          v-model="lastname"
-          label="Last Name"
-        /></div>
+          <div class="col">
+            <q-input
+              outlined
+              label-color="gray"
+              color="julep1"
+              bg-color="input"
+              v-model="firstname"
+              label="First Name"
+            />
+          </div>
 
-</div>
+          <div class="col q-ml-sm">
+            <q-input
+              class=""
+              outlined
+              label-color="gray"
+              color="julep1"
+              bg-color="input"
+              v-model="lastname"
+              label="Last Name"
+            />
+          </div>
+        </div>
 
         <q-input
           class="q-my-xs"
@@ -47,14 +50,12 @@
         <q-input
           type="password"
           class="q-my-xs"
-
           outlined
           label-color="gray"
           color="julep1"
           bg-color="input"
           v-model="pass1"
           label="password"
-
         />
         <q-input
           type="password"
@@ -83,16 +84,16 @@
 
 <script>
 export default {
-  name: 'Register',
+  name: "Register",
   data() {
     return {
       firstname: "",
       lastname: "",
       email: "",
       pass1: "",
-      pass2: "",
+      pass2: ""
     };
-  },
+  }
 };
 </script>
 <style lang="scss">
